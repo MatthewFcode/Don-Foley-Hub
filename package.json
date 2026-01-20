@@ -29,6 +29,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "knex": "^2.5.1",
+    "lottie-react": "^2.4.1",
     "sqlite3": "^5.1.6",
     "superagent": "^10.2.1"
   },
