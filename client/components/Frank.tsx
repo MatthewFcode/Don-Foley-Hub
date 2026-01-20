@@ -15,11 +15,11 @@ function Frank() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const promptObj = {prompt: form.prompt}
+    const promptObj = { prompt: form.prompt }
   }
 
   return (
-  <div>
+    <div>
       <h1>Hi I am Frank Dons personal AI assistant!</h1>
       <h2>
         Ask me anything about about Dons professional experience or some
@@ -29,13 +29,17 @@ function Frank() {
       <div>
         <Lottie animationData={aiAnimation} loop />
       </div>
-      <form onSubmit={handleSubmit}
-        <input type="text" name="prompt" placeholder="...ask me something" onChange={handleChange} />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="prompt"
+          placeholder="...ask me something"
+          onChange={handleChange}
+        />
         <button type="submit">Send</button>
       </form>
-      </div>
+    </div>
   )
-  
 }
 
 export default Frank
