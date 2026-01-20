@@ -13,7 +13,10 @@ const model = new ChatGoogleGenerativeAI({
   temperature: 0.7,
 })
 
-export async function chatBot(question: string) {
+export async function chatBot(
+  question: string,
+  onStream: (chunk: string) => void,
+) {
   try {
     const trace = langfuse.trace({
       name: 'chatBot',
@@ -26,13 +29,23 @@ If someone asks you a question other than about Don's professional work experien
 
 Question: ${question}`
 
-    const response = await model.invoke(prompt)
+    let fullResponse = ''
 
-    trace.update({
-      output: response,
+    await model.invoke(prompt, {
+      // streaming callback
+      callbacks: [
+        {
+          handleLLMNewToken(token: string) {
+            fullResponse += token
+            onStream(token)
+          },
+        },
+      ],
     })
 
-    return response
+    trace.update({
+      output: fullResponse,
+    })
   } catch (err) {
     console.log(
       'error trying to process the prompt in the langchain function',
