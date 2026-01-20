@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 function Frank() {
   const [form, setForm] = useState({ prompt: '' })
+  const [response, setResponse] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     evt.preventDefault()
@@ -15,7 +17,26 @@ function Frank() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const promptObj = { prompt: form.prompt }
+    if (!form.prompt.trim()) return
+    setResponse('')
+    setLoading(true)
+
+    const eventSource = new EventSource(`/api/v1/frank`, { method: 'POST' })
+
+    await fetch('/api/v1/frank', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: form.prompt }),
+    })
+
+    eventSource.onmessage = (e) => {
+      if (e.data === '[DONE]') {
+        eventSource.close()
+        setLoading(false)
+      } else {
+        setResponse((prev) => prev + e.data)
+      }
+    }
   }
 
   return (
@@ -35,9 +56,16 @@ function Frank() {
           name="prompt"
           placeholder="...ask me something"
           onChange={handleChange}
+          value={form.prompt}
         />
         <button type="submit">Send</button>
       </form>
+      <div style={{ marginTop: '1rem' }}>
+        {loading && <p>Loading...</p>}
+        <p>
+          <strong>Frank:</strong> {response}
+        </p>
+      </div>
     </div>
   )
 }
