@@ -1,34 +1,31 @@
-# Boilerplate: Fullstack with Sass
+# Frank — Portfolio Assistant
 
-## Setup
+This project is a personal portfolio site for an experienced IT Programme Manager.  
+Its purpose is to present a long and complex professional career in a clearer, more accessible way by combining traditional portfolio content with a conversational interface.
 
-### What's included
-
-This repo includes:
-
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Vitest and testing library
-* configuration for server-side debugging in VS Code
-* configuration for preprocessing Sass
-
-### Installation
-
-#### **From the Github UI**
-
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
-
-```
-git clone [your-project-ssh-address]
-cd [your-project-name]
-npm install # to install dependencies
-npm run dev # to start the dev server
-```
-```
-
-You can find the server running on [http://localhost:3000](http://localhost:3000) and the client running on [http://localhost:5173](http://localhost:5173).
+Instead of relying solely on static CVs or written summaries, visitors can ask questions and receive contextual answers about the programme manager’s experience, roles, and delivery history.
 
 ---
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-fullstack)
+
+## Project Overview
+
+The portfolio combines two main ideas:
+
+1. **A structured presentation of professional experience**  
+   Covering leadership roles, programmes delivered, industries worked in, and areas of expertise.
+
+2. **An AI-powered chatbot (“Frank”)**  
+   Allowing users to ask natural-language questions about that experience, with answers grounded in real source material rather than generic model knowledge.
+
+The chatbot uses Retrieval-Augmented Generation (RAG) so that responses are based on a curated knowledge base derived from the portfolio owner’s actual career information.
+
+---
+
+## Key Features
+
+- Portfolio site for an experienced IT Programme Manager
+- Conversational interface for exploring career experience
+- Retrieval-Augmented Generation (RAG) using a vector database
+- Session-based conversational memory (no authentication required)
+- Streaming responses for a responsive user experience
+- Prompt and response tracing for observability and debugging
