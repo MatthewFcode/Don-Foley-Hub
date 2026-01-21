@@ -2,17 +2,12 @@
 // import fs from 'fs'
 // import path from 'path'
 // import { createClient } from '@supabase/supabase-js'
-// import { GoogleGenerativeAIEmbeddings } from '@langchain/google-genai'
+// import { pipeline } from '@xenova/transformers'
 
 // /* -----------------------------
 //    Load environment variables
 // -------------------------------- */
-// const requiredEnvs = [
-//   'SUPABASE_URL',
-//   'SUPABASE_SERVICE_ROLE_KEY',
-//   'GOOGLE_API_KEY',
-// ]
-
+// const requiredEnvs = ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY']
 // for (const env of requiredEnvs) {
 //   if (!process.env[env]) {
 //     console.error(`❌ Missing environment variable: ${env}`)
@@ -25,36 +20,77 @@
 // -------------------------------- */
 // const supabase = createClient(
 //   process.env.SUPABASE_URL,
-//   process.env.SUPABASE_SERVICE_ROLE_KEY, // SERVER ONLY
+//   process.env.SUPABASE_SERVICE_ROLE_KEY,
 // )
 
 // /* -----------------------------
-//    Embeddings (Gemini)
+//    Load Xenova embeddings model
 // -------------------------------- */
-// const embeddings = new GoogleGenerativeAIEmbeddings({
-//   model: 'textembedding-gecko-001', // working Gemini embedding model
-//   apiKey: process.env.GOOGLE_API_KEY,
-// })
+// console.log('🔹 Loading local embedding model… (this may take a minute)')
+// const embedPipeline = await pipeline(
+//   'feature-extraction',
+//   'Xenova/all-MiniLM-L6-v2',
+//   { quantized: true },
+// )
+// console.log('✅ Embedding model ready')
 
 // /* -----------------------------
 //    Chunking helper
 // -------------------------------- */
-
-// const test = await embeddings.embedDocuments(['Hello world'])
-// console.log(test)
-
 // function chunkText(text, chunkSize = 800, overlap = 100) {
 //   const words = text.split(' ')
 //   const chunks = []
-
 //   let i = 0
 //   while (i < words.length) {
 //     const chunk = words.slice(i, i + chunkSize).join(' ')
 //     chunks.push(chunk)
 //     i += chunkSize - overlap
 //   }
-
 //   return chunks
+// }
+
+// /* -----------------------------
+//    Embeddings helper
+// -------------------------------- */
+// // async function getEmbeddings(texts) {
+// //   const vectors = []
+
+// //   for (const t of texts) {
+// //     const res = await embedPipeline(t)
+// //     // Xenova sometimes returns nested arrays, flatten to 384-dim
+// //     const vector = Array.isArray(res[0]) ? res[0] : res
+// //     vectors.push(vector)
+// //   }
+
+// //   return vectors
+// // }
+// async function getEmbeddings(texts) {
+//   const vectors = []
+
+//   for (const t of texts) {
+//     const res = await embedPipeline(t)
+
+//     // Xenova returns an object for ONNX models, we need the data array
+//     let vector
+//     if (res?.data) {
+//       // Convert typed array object to normal array
+//       vector = Object.values(res.data)
+//     } else if (Array.isArray(res[0])) {
+//       vector = res[0]
+//     } else {
+//       vector = res
+//     }
+
+//     if (!vector || vector.length !== 384) {
+//       console.warn(
+//         `⚠️ Vector at index ${vectors.length} has invalid length: ${vector?.length}`,
+//       )
+//     }
+
+//     vectors.push(vector)
+//   }
+
+//   return vectors
 // }
 
 // /* -----------------------------
@@ -64,22 +100,16 @@
 //   const chunks = chunkText(text)
 //   console.log(`🔹 Chunked into ${chunks.length} pieces`)
 
-//   // Create embeddings
 //   console.log('🔹 Creating embeddings…')
-//   const vectors = await embeddings.embedDocuments(chunks)
+//   const vectors = await getEmbeddings(chunks)
 
-//   // Sanity check embeddings
+//   // Sanity check
 //   vectors.forEach((v, i) => {
-//     if (!v || v.length === 0) {
-//       console.error(`❌ Vector at index ${i} is empty!`)
-//       process.exit(1)
-//     }
-//     if (v.length !== 768) {
-//       console.warn(
-//         `⚠️ Vector at index ${i} has length ${v.length} (expected 768)`,
-//       )
+//     if (!v || v.length !== 384) {
+//       console.warn(`⚠️ Vector at index ${i} has invalid length: ${v?.length}`)
 //     }
 //   })
+
 //   console.log('✅ Embeddings created successfully')
 
 //   // Prepare rows for Supabase
