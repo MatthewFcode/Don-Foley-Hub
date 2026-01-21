@@ -9,7 +9,7 @@ const langfuse = new Langfuse({
 })
 
 const model = new ChatGoogleGenerativeAI({
-  model: 'gemini-1.5-flash',
+  model: 'models/gemini-flash-latest',
   temperature: 0.7,
 })
 

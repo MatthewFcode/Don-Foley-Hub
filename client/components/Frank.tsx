@@ -15,27 +15,58 @@ function Frank() {
     })
   }
 
+  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault()
+  //   if (!form.prompt.trim()) return
+  //   setResponse('')
+  //   setLoading(true)
+
+  //   const eventSource = new EventSource(`/api/v1/frank`, { method: 'POST' })
+
+  //   await fetch('/api/v1/frank', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ prompt: form.prompt }),
+  //   })
+
+  //   eventSource.onmessage = (e) => {
+  //     if (e.data === '[DONE]') {
+  //       eventSource.close()
+  //       setLoading(false)
+  //     } else {
+  //       setResponse((prev) => prev + e.data)
+  //     }
+  //   }
+  // }
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!form.prompt.trim()) return
     setResponse('')
     setLoading(true)
 
-    const eventSource = new EventSource(`/api/v1/frank`, { method: 'POST' })
-
-    await fetch('/api/v1/frank', {
+    const res = await fetch('/api/v1/frank', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: form.prompt }),
     })
 
-    eventSource.onmessage = (e) => {
-      if (e.data === '[DONE]') {
-        eventSource.close()
-        setLoading(false)
-      } else {
-        setResponse((prev) => prev + e.data)
-      }
+    const reader = res.body?.getReader()
+    const decoder = new TextDecoder()
+
+    while (true) {
+      const { done, value } = await reader!.read()
+      if (done) break
+      const chunk = decoder.decode(value)
+      chunk.split('\n\n').forEach((line) => {
+        if (line.startsWith('data: ')) {
+          const data = line.replace('data: ', '')
+          if (data === '[DONE]') {
+            setLoading(false)
+          } else {
+            setResponse((prev) => prev + data)
+          }
+        }
+      })
     }
   }
 
