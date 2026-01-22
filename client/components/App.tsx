@@ -1,8 +1,10 @@
+import Home from './Home'
+
 function App() {
   return (
     <>
       <div className="app">
-        <h1>Donough Foley</h1>
+        <Home />
       </div>
     </>
   )
