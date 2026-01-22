@@ -16,9 +16,9 @@ function Nav() {
           <p>Don Foley</p>
         </div>
         <div className="nav-links">
-          <Link to="">
+          <a href="#career-experience">
             <p>Work Experience</p>
-          </Link>
+          </a>
           <Link to="">
             <p>Career Timeline</p>
           </Link>
