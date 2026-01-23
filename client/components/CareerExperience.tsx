@@ -6,7 +6,7 @@ function CareerExperience() {
       <Nav />
       <div id="career-experience" className="career-experience-container">
         <div className="experience-header">
-          <h1>Career Experience</h1>
+          <h1>Experience.</h1>
         </div>
         <section className="experience">
           <div className="role">

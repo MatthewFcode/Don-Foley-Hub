@@ -17,7 +17,7 @@ function Nav() {
         </div>
         <div className="nav-links">
           <a href="#career-experience">
-            <p>Work Experience</p>
+            <p>Experience</p>
           </a>
           <Link to="">
             <p>Career Timeline</p>
@@ -25,9 +25,9 @@ function Nav() {
           <Link to="/chat">
             <p>Frank AI</p>
           </Link>
-          <Link to="">
+          <a href="#timeline">
             <p>Contact</p>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

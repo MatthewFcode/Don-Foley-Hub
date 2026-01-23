@@ -529,21 +529,19 @@ body {
     .arrow {
       width: 24px;
       height: 24px;
-      // border-left: 2px solid #666;
-      // border-bottom: 2px solid #666;
-      border-left: 2px solid $white-smoke;
-       border-bottom: 2px solid $white-smoke;
+      border-left: 2px solid #666;
+      border-bottom: 2px solid #666;
       transform: rotate(-45deg);
       animation: bounceArrow 2s ease-in-out infinite;
       
       &:nth-child(1) {
         animation-delay: 0s;
-        opacity: 0.72;
+        opacity: 0.4;
       }
       
       &:nth-child(2) {
         animation-delay: 0.2s;
-        opacity: 0.85;
+        opacity: 0.6;
       }
       
       &:nth-child(3) {
@@ -677,7 +675,7 @@ body {
 
 .role {
   background: rgba(26, 26, 26, 0.5);
-  border: 1px solid $white-smoke;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 1.5rem;
   position: relative;
@@ -894,3 +892,418 @@ details {
     padding-left: 1.1rem;
   }
 }
+
+// Career Timeline Page
+.career-timeline-container {
+  min-height: 100vh;
+  background: $black;
+  padding: 7rem 2rem 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s $transition-smooth 0.2s forwards;
+  
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, $white-smoke 0%, #999 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $white-smoke, transparent);
+    margin: 1.5rem auto 0;
+  }
+}
+
+.timeline-wrapper {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 12rem 2rem;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+
+.timeline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+  height: fit-content;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 5%,
+    rgba(255, 255, 255, 0.2) 95%,
+    transparent 100%
+  );
+  transform: translateY(-50%);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, $white-smoke, #999);
+    animation: lineGrow 2s $transition-smooth 0.5s forwards;
+  }
+}
+
+@keyframes lineGrow {
+  to {
+    width: 100%;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+  opacity: 0;
+  animation: fadeInUp 0.6s $transition-smooth forwards;
+  
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{0.8 + ($i * 0.15)}s;
+    }
+  }
+  
+  &:not(:last-child) {
+    margin-right: 3rem;
+  }
+}
+
+.timeline-dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background: $black;
+  border: 3px solid $white-smoke;
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s $transition-smooth;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .timeline-item:hover & {
+    transform: scale(1.3);
+    border-color: $white-smoke;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.timeline-connector {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(to bottom, $white-smoke, rgba(255, 255, 255, 0.3));
+  
+  &.connector-top {
+    bottom: 100%;
+    height: 120px;
+  }
+  
+  &.connector-bottom {
+    top: 100%;
+    height: 120px;
+  }
+}
+
+.timeline-content {
+  position: absolute;
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  min-width: 200px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s $transition-smooth;
+  white-space: nowrap;
+  
+  &.content-top {
+    bottom: calc(100% + 130px);
+  }
+  
+  &.content-bottom {
+    top: calc(100% + 130px);
+  }
+  
+  .timeline-item:hover & {
+    background: rgba(26, 26, 26, 1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $white-smoke;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .timeline-dates {
+    font-size: 0.9rem;
+    color: #999;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+}
+
+// Responsive Timeline
+@media (max-width: 1024px) {
+  .career-timeline-container {
+    padding: 6rem 1rem 3rem;
+  }
+  
+  .timeline-header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+  
+  .timeline-wrapper {
+    padding: 10rem 1rem;
+  }
+  
+  .timeline-item {
+    min-width: 200px;
+    
+    &:not(:last-child) {
+      margin-right: 2.5rem;
+    }
+  }
+  
+  .timeline-connector {
+    &.connector-top,
+    &.connector-bottom {
+      height: 100px;
+    }
+  }
+  
+  .timeline-content {
+    &.content-top {
+      bottom: calc(100% + 110px);
+    }
+    
+    &.content-bottom {
+      top: calc(100% + 110px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .career-timeline-container {
+    padding: 6rem 0.5rem 2rem;
+  }
+  
+  .timeline-header {
+    margin-bottom: 2rem;
+    
+    h1 {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+    }
+  }
+  
+  .timeline-wrapper {
+    padding: 8rem 0.5rem;
+  }
+  
+  .timeline-item {
+    min-width: 180px;
+    
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+  
+  .timeline-connector {
+    &.connector-top,
+    &.connector-bottom {
+      height: 80px;
+    }
+  }
+  
+  .timeline-content {
+    padding: 1rem 1.25rem;
+    min-width: 180px;
+    
+    &.content-top {
+      bottom: calc(100% + 90px);
+    }
+    
+    &.content-bottom {
+      top: calc(100% + 90px);
+    }
+    
+    h3 {
+      font-size: 1rem;
+    }
+    
+    .timeline-dates {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.right-sunshine-scroll {
+  margin-top: 1rem;
+  color: $white-smoke;
+}
+
+.arrows-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -1.3rem;
+  gap: 0.25rem;
+  
+  .arrow-horizontal {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid $white-smoke;
+    border-bottom: 2px solid $white-smoke;
+    transform: rotate(-45deg);
+    animation: bounceArrowHorizontal 2s ease-in-out infinite;
+    
+    &:nth-child(1) {
+      animation-delay: 0s;
+      opacity: 0.4;
+    }
+    
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+      opacity: 0.6;
+    }
+    
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+      opacity: 1;
+    }
+  }
+}
+
+
+@keyframes bounceArrowHorizontal {
+0%, 100% {
+  transform: rotate(-45deg) translateX(0);
+}
+50% {
+  transform: rotate(-45deg) translateX(8px);
+}
+}
+
+
+// .arrows-horizontal {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 0.25rem;
+  
+//   .arrow-horizontal {
+//     width: 24px;
+//     height: 24px;
+//     border-left: 2px solid $white-smoke;
+//     border-bottom: 2px solid $white-smoke;
+//     transform: rotate(-45deg);
+//     animation: bounceArrow 2s ease-in-out infinite;
+    
+//     &:nth-child(1) {
+//       animation-delay: 0s;
+//       opacity: 0.4;
+//     }
+    
+//     &:nth-child(2) {
+//       animation-delay: 0.2s;
+//       opacity: 0.6;
+//     }
+    
+//     &:nth-child(3) {
+//       animation-delay: 0.4s;
+//       opacity: 1;
+//     }
+//   }
+// }
+
+
+// @keyframes bounceArrow {
+// 0%, 100% {
+//   transform: rotate(-45deg) translateY(0);
+// }
+// 50% {
+//   transform: rotate(-45deg) translateY(8px);
+// }
+// }

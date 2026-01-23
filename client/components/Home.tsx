@@ -1,5 +1,6 @@
 import Nav from './Nav.tsx'
 import CareerExperience from './CareerExperience.tsx'
+import Timeline from './Timeline.tsx'
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
           <div className="hero-description">
             <p>
               Don doesn't just do IT; Don designs, governs and delivers systems
-              at a national scale.
+              at a national and multi-national scale.
             </p>
           </div>
           <div className="scroll-indicator">
@@ -31,6 +32,9 @@ function Home() {
 
       <div>
         <CareerExperience />
+      </div>
+      <div>
+        <Timeline />
       </div>
     </>
   )
