@@ -16,16 +16,20 @@ function Nav() {
           <p>Don Foley</p>
         </div>
         <div className="nav-links">
+          <Link to="/">
+            <p>Home</p>
+          </Link>
           <a href="#career-experience">
             <p>Experience</p>
           </a>
-          <Link to="">
+          <a href="#timeline">
             <p>Career Timeline</p>
-          </Link>
+          </a>
+
           <Link to="/chat">
             <p>Frank AI</p>
           </Link>
-          <a href="#timeline">
+          <a href="">
             <p>Contact</p>
           </a>
         </div>
