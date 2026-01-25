@@ -168,6 +168,7 @@ import aiAnimation from '../../src/animations/AI logo Foriday.json'
 import Lottie from 'lottie-react'
 import { useState, useRef, useEffect } from 'react'
 import Nav from './Nav'
+import Contact from './Contact.tsx'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -351,6 +352,9 @@ function Frank() {
             </button>
           </form>
         </div>
+      </div>
+      <div>
+        <Contact />
       </div>
     </>
   )

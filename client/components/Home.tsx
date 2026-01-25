@@ -1,5 +1,6 @@
 import NavHome from './NavHome.tsx'
 import CareerExperience from './CareerExperience.tsx'
+import Contact from './Contact.tsx'
 //import Timeline from './Timeline.tsx'
 
 function Home() {
@@ -33,9 +34,13 @@ function Home() {
       <div>
         <CareerExperience />
       </div>
+
       {/* <div>
         <Timeline />
       </div> */}
+      <div>
+        <Contact />
+      </div>
     </>
   )
 }

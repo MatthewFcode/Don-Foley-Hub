@@ -1,4 +1,5 @@
 import Nav from './Nav.tsx'
+import Contact from './Contact.tsx'
 
 function CareerTimeline() {
   const timelineData = [
@@ -61,6 +62,9 @@ function CareerTimeline() {
             ))}
           </div>
         </div>
+      </div>
+      <div>
+        <Contact />
       </div>
     </>
   )
