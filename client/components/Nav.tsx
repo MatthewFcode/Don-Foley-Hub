@@ -32,6 +32,9 @@ function Nav() {
           <a href="">
             <p>Contact</p>
           </a>
+          <a href="/Don-Foley-CV.pdf" target="_blank">
+            Download my CV
+          </a>
         </div>
       </div>
     </div>

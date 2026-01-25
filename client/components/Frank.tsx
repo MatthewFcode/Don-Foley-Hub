@@ -296,7 +296,7 @@ function Frank() {
         <div className="frank-header scroll-fade" ref={headerRef}>
           <h1>Meet Frank</h1>
           <h2>
-            Don's Personal AI Assistant — Ask me anything about Don's
+            Don's Personal AI Assistant. Ask me anything about Don's
             professional experience, career achievements, or skills.
           </h2>
           <div className="frank-lottie-container">

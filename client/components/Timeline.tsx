@@ -30,7 +30,7 @@ function CareerTimeline() {
       <div className="career-timeline-container" id="timeline">
         <div className="timeline-header">
           <h1>Career Timeline</h1>
-          <img src="/images/don-africa.JPG" alt="Don" />
+          <img src="/images/workday.jpeg" alt="Don" />
           <div className="timeline-scroll-indicator"></div>
         </div>
         <div className="arrows-horizontal">
