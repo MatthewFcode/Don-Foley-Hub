@@ -1,4 +1,4 @@
-import Nav from './Nav.tsx'
+import NavHome from './NavHome.tsx'
 import CareerExperience from './CareerExperience.tsx'
 //import Timeline from './Timeline.tsx'
 
@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <div className="home-container">
-        <Nav />
+        <NavHome />
         <div className="hero-section">
           <div className="hero-titles">
             <h1>System</h1>

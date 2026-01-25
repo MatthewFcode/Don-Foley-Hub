@@ -19,9 +19,9 @@ function Nav() {
           <Link to="/">
             <p>Home</p>
           </Link>
-          {/* <a href="#career-experience">
+          <a href="#career-experience">
             <p>Experience</p>
-          </a> */}
+          </a>
           <Link to="/timeline">
             <p>Career Timeline</p>
           </Link>
