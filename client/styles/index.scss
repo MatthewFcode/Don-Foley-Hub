@@ -338,11 +338,15 @@ body {
 }
 
 .experience-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-bottom: 2.5rem;
+   margin-bottom: 2.5rem;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s $transition-smooth 0.2s forwards;
+  gap: 2rem;
   
   h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -354,16 +358,23 @@ body {
     background-clip: text;
     margin-bottom: 0.5rem;
   }
+  img{
+    border-radius: 50%;
+    width:  190px;
+    height: 190px;
+    padding: 0rem;
+    margin: 0rem;}
   
-  &::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, $white-smoke, transparent);
-    margin: 1.5rem auto 0;
-  }
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   width: 60px;
+  //   height: 2px;
+  //   background: linear-gradient(90deg, transparent, $white-smoke, transparent);
+  //   margin: 1.5rem auto 0;
+  // }
 }
+
 
 .experience {
   max-width: 1400px;
@@ -561,14 +572,22 @@ details {
 }
 
 .timeline-header {
+  display: flex;
+ align-items: center;
+  
+  gap: 2rem;
   text-align: center;
   margin-bottom: 3rem;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s $transition-smooth 0.2s forwards;
+
+
   
   h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
+    display: flex;
+    justify-content: center;
     font-weight: 800;
     letter-spacing: -0.03em;
     background: linear-gradient(135deg, $white-smoke 0%, #999 100%);
@@ -576,6 +595,14 @@ details {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 0.5rem;
+  }
+  img {
+    border-radius: 50%;
+    width:  190px;
+    height: 190px;
+    padding: 0rem;
+    margin: 0rem;
+   
   }
   
   &::after {
