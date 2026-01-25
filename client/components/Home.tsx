@@ -1,6 +1,6 @@
 import Nav from './Nav.tsx'
 import CareerExperience from './CareerExperience.tsx'
-import Timeline from './Timeline.tsx'
+//import Timeline from './Timeline.tsx'
 
 function Home() {
   return (
@@ -33,9 +33,9 @@ function Home() {
       <div>
         <CareerExperience />
       </div>
-      <div>
+      {/* <div>
         <Timeline />
-      </div>
+      </div> */}
     </>
   )
 }

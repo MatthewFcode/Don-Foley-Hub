@@ -22,9 +22,9 @@ function Nav() {
           <a href="#career-experience">
             <p>Experience</p>
           </a>
-          <a href="#timeline">
+          <Link to="/timeline">
             <p>Career Timeline</p>
-          </a>
+          </Link>
 
           <Link to="/chat">
             <p>Frank AI</p>
