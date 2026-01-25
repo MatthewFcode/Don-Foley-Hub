@@ -37,7 +37,8 @@ console.log('✅ Embedding model ready')
 /* -----------------------------
    Chunking helper
 -------------------------------- */
-function chunkText(text, chunkSize = 250, overlap = 50) {
+//function chunkText(text, chunkSize = 250, overlap = 50) {
+function chunkText(text, chunkSize = 600, overlap = 100) {
   const words = text.split(' ')
   const chunks = []
   let i = 0
@@ -89,6 +90,20 @@ async function getEmbeddings(texts) {
 /* -----------------------------
    Ingest function
 -------------------------------- */
+console.log('🧹 Removing existing CV embeddings…')
+
+const { error: deleteError } = await supabase
+  .from('documents')
+  .delete()
+  .eq('metadata->>source', 'don_foley_cv')
+
+if (deleteError) {
+  console.error('❌ Failed to delete old CV embeddings:', deleteError)
+  process.exit(1)
+}
+
+console.log('✅ Old CV embeddings removed')
+
 async function ingestText(text, baseMetadata = {}) {
   const chunks = chunkText(text)
   console.log(`🔹 Chunked into ${chunks.length} pieces`)

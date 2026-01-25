@@ -1,213 +1,239 @@
-﻿Summary CV – Don Foley
-Company
-	Job Title
-	Dates Employed
-	Summary
-	Watercare
-	HRIS Transformation Programme Director
-	Mar 2024 – Dec 2025
-	 Led major HRIS programme, $21M budget, implementing multiple Workday modules (HCM, Recruitment, Talent, Time Tracking, Learning, Help) 
- Integrated MYOB Payroll and new SailPoint IDAM system with 8 major downstream LOB systems 
- Oversaw data cleansing and migration  
- Delivered Phase 1 on time and under budget—one of the only Watercare digital programs to achieve this.
- This programme was one of a number of initiatives, to support Watercare’s shift to financial independence under the “Local Water Done Well” initiative which also involved such major items in 2025 as a new Treasury function, $1B NZD offshore capital raising programme, first tranche bond issuances, a new org structure and initiation of a new programme office and a 30-year water infrastructure replacement programme.
+﻿# Don Foley – RAG-Optimized Professional Knowledge File
 
+This document is structured for optimal Retrieval-Augmented Generation (RAG) performance. Each role is self-contained, semantically dense, and suitable for chunk-level ingestion. Sections are written to directly answer likely chatbot questions (experience, scale, technologies, outcomes).
 
-	3 Waters – (New Zealand Water Services Reform Programme under NZ Dept. of Internal Affairs).
-	Programme Lead Entity A - Digital Transformation Stream (i.e. Entity A = setting up new mega water utility for Auckland & Northland regions and transitioning existing 5 utilities Watercare, Auckland Council Healthy Waters, Far North District Council, Kaipara District Council, Whangarei Council to the new Commercial entity). 
-	Feb 2023 – Mar 2024
-	 Led the Digital Delivery stream for amalgamation of 5 major water entities in northern New Zealand into one unified Water Authority 
- Managed 5 council project teams, Project Team , working with an EY data team of 20, and a dedicated PwC Change team of 5
- Coordinated migration from legacy systems to the target new platforms: Infor ERP, Salesforce, Workday, ARC GIS, Datacom Data Pay 
- We achieved 75% completion on time before the programme was halted due to a change in government post-election, following which I transitioned to Watercare’s HRIS Programme after the reform was replaced by the “Local Water Done Well” policy by the current NZ Government.
+---
 
+## Profile Summary
 
-	Contact Energy
-	Programme Director
-(Contract)
-	Sept 2021 – Dec 2022
-	 Directed Contact’s largest ICT programme at the time: a $25M S/4HANA transformation spanning all their business-critical processes and functions.
- Managed multiple ERP module migration/conversion, integrations (FICO, EAM & Procurement), Internal Integration to CRM, 70 plus PI/PO integrations to LOB systems, CRM code refactoring and migration to cloud, BI/reporting migrations, and SAP Fiori/UI5 apps development and roll out for Finance.
- Reported progress to CIO, CEO, and Board, with updates included in NZX50 P&L media summary calls 
- Programme was delivered on time and within contingency budget
+Senior Programme & Transformation Director with 20+ years of experience leading large-scale digital, ERP, and enterprise transformation programmes across public sector, utilities, aviation, energy, banking, and global FMCG. Extensive leadership of SAP (ECC, S/4HANA), Workday, Salesforce, Ariba, PeopleSoft, and enterprise infrastructure programmes, typically operating at CIO / CEO / Board level. Proven delivery of high-value ($10M–$80M+) programmes on time and within budget.
 
+Key strengths include complex system integration, organisational change, multi-vendor delivery, regulatory environments, and large-scale operating model transformation.
 
-	Auckland Council
-	Programme Manager, SAP Delivery Function 
-(Contract)
-	Aug 2019 – Aug 2021
-	 Oversaw multiple SAP projects and Agile ERP delivery centre initiatives, including Auckland Unlimited demerger, Annual Dogs licensing, Annual Rates project, SAP CRM Resource & Building Consent replacement project requirements scoping, and more 
- Managed projects across Auckland Council’s SAP modules and 70+ integrated LOB applications 
- Transitioned the team (2/3rds of ICT) to Agile practices over 2 years 
- Seconded to MBIE in Wellington for 3 months to audit and provide recommendations for their SAP transformation programme
+---
 
+## Watercare (New Zealand)
 
-	SAP (IBSO) & Auckland Council
-	Project Director (Auckland Council S/4HANA Transformation)
-(Contract)
-	Sept 2018 – Aug 2019
-	 Led Auckland Council S/4HANA transformation program team for SAP and Auckland Council 
- Managed ~60 Council and vendor technical staff across NZ, India, Australia, and Europe 
- Migrated 70+ integrations and SAP Hybris e-commerce to Council’s main online presence 
- Delivered on time and on budget to fixed deadline before the next annual rates issuance to 2.2million Auckland ratepayers.
+**Role:** HRIS Transformation Programme Director
+**Dates:** Mar 2024 – Dec 2025
+**Sector:** Public Utility
+**Budget:** $21M NZD
+**Core Technologies:** Workday (HCM, Recruitment, Talent, Time Tracking, Learning, Help), MYOB Payroll, SailPoint IDAM
 
+### Responsibilities
 
-	Fonterra
-	SAP Programme Mgr. (Supply Planning Optimization Replacement)
-(Contract)
-	Mar 2018 – Sept 2018
-	 Scoped $12M optimization tool upgrade project to replace legacy milk planning optimizer with SAP APO custom optimizer 
- Solution was intended to be integrated with SAP SCM Supply Chain Mgt. modules for daily production and logistics decisions on all the milk collected daily in New Zealand to the 27 milk production plants across the country.
- Fonterra paused project post scoping for organisation restructuring reasons. 
+* Led a major enterprise HRIS transformation programme implementing multiple Workday modules.
+* Directed integration of MYOB Payroll and SailPoint IDAM with eight major downstream line-of-business systems.
+* Oversaw enterprise-wide data cleansing and migration activities.
 
+### Outcomes
 
-	Fonterra
-	Programme Mgr. (SAP Ariba Global Procurement Transformation Programme) 
-(Contract)
-	Mar 2017 – Mar 2018
-	 Implemented new Global procurement solution and process on SAP Ariba across 27 NZ sites.
- Integrated with SAP Procurement, FICO, and SAP Business Warehouse 
- Managed $17M budget and transitioned 3000 staff to new systems with EY Change team.
- APAC phase paused due to company restructuring
+* Phase 1 delivered on time and under budget.
+* One of the only Watercare digital programmes to meet delivery targets during the period.
 
+### Context
 
-	Air New Zealand
-	Programme Lead (DORIS [Day of Operations Information Systems] – Phase II) (Contract)
-	Jun 2015 – Mar 2017
-	 Replaced legacy pilot and cabin crew rostering system with Jeppesen (Boeing) solution for 3000 staff 
- Managed application scoping, coding, and delivery with international vendor teams over 2 yrs focused on monthly Agile delivery cycles with off shore teams.
- Delivered solution after SIT, into the planned 6- month union negotiation & UAT review stage at end of my contract term end for the testing team to takeover and undertake final reviews of coded rulesets from union agreements. System now fully in use by Air NZ.
+* Programme supported Watercare’s transition to financial independence under the “Local Water Done Well” initiative.
+* Ran alongside major national initiatives including offshore capital raising, bond issuance, new treasury function, new organisational structure, and long-term infrastructure investment planning.
 
+---
 
-	Bank of New Zealand
-	Programme Lead (Global Plus Credit Card Exit)
-(Contract)
-	Jan 2015 – Jun 2015
-	 Delivered $10M programme to exit BNZ Air NZ Global Plus card and launch new Fly Buys-based credit card 
- Managed legal, customer change, media, digital, security, and logistics components to a fixed deadline
+## 3 Waters Reform Programme – New Zealand Department of Internal Affairs
 
+**Role:** Programme Lead – Entity A, Digital Transformation Stream
+**Dates:** Feb 2023 – Mar 2024
+**Sector:** Central Government / Utilities Reform
+**Core Technologies:** Infor ERP, Salesforce, Workday, ARC GIS, Datacom DataPay
 
-	Air New Zealand
-	Programme Lead (Staff Mobile Programme) (Contract)
-	Oct 2013 – Dec 2014
-	 Led Air NZ’s first staff mobile app implementation using Citrix XenMobile MDAM platform 
- Upgraded networking, proxy, and Wi-Fi, infrastructure for all sites , plus new Firewall and IDAM set up solutions plus security audit via pen testing. 
- Managed RFP, build, testing, and rollout to 5000+ users, including new mobile policy
+### Responsibilities
 
+* Led the Digital Delivery stream for the amalgamation of five major northern New Zealand water utilities into a single commercial water authority.
+* Managed five council delivery teams, an EY data team of ~20, and a PwC change management team of five.
+* Coordinated migration from legacy systems to new enterprise platforms.
 
-	Air New Zealand
-	Senior Project Manager, Digital (Contract)
-	Oct 2012 – Sept 2013
-	 Managed projects for CIO and Digital Leadership, including PCI Credit Card compliance and Learning Management System upgrades for 5000 staff 
- Coordinated desktop upgrade programme with LMS rollout for minimal disruption
+### Outcomes
 
+* Achieved approximately 75% programme completion on schedule.
+* Programme halted following a change of government post-election.
 
-	Air New Zealand
-	Senior Project Manager (Tiakina Programme) (Contract)
-	Feb 2011 – Oct 2012
-	 Led multiple projects under a major 2-year programme covering SAP aircraft maintenance system upgrade, Peoplesoft HR re-platforming and migration, the Air NZ VMware platform implementation and migration of physical servers, plus migration of 200+ Oracle databases from to new IBM mainframes hosting.
- Managed cabling, racking, and SAN migrations for secondary IBM Data Centre 
- Effectively under this programme the entire Air NZ’s digital landscape was migrated on time.
+### Transition
 
+* Transitioned directly into Watercare’s HRIS Programme after reform was replaced by the “Local Water Done Well” policy.
 
-	Perpetual Insurance (ASB Bank sale and demerger)
-	Technology Project Manager (Contract)
-	Sept 2010 – Jan 2011
-	 Managed $3M infrastructure rebuild scoping, costing and RFP for insurance business separation from ASB Bank to Perpetual. 
+---
 
+## Contact Energy
 
-	ANZ Bank NZ
-	Tech Project Manager (Contract)
-	May 2010 – Sept 2010
-	 Scoped $20M IT delivery project within $100M building construction and trading floor IT systems replacement programme 
- Project paused for leasing option review; transitioned to ASB programme after pause
+**Role:** Programme Director (Contract)
+**Dates:** Sept 2021 – Dec 2022
+**Sector:** Energy
+**Budget:** $25M NZD
+**Core Technologies:** SAP S/4HANA, SAP FICO, EAM, Procurement, PI/PO, SAP Fiori/UI5, CRM, BI/Reporting
 
+### Responsibilities
 
-	BNZ (NAB Group)
-	National Retail Refit Technology Programme Manager (Permanent)
-	Dec 2009 – May 2010
-	 Led scoping, architecture, design, and initial delivery for $80M NZD retail refit digital ICT stream 
- Managed 11 technology projects, including store systems, security, networking, and cabling 
- Handed over to BAU delivery team for rollout
+* Directed Contact Energy’s largest ICT programme at the time: an enterprise-wide SAP S/4HANA transformation.
+* Oversaw ERP module migrations, 70+ system integrations, CRM refactoring, and cloud migration.
 
+### Outcomes
 
-	BNZ (NAB Group)
-	Head of Software & Delivery (Permanent)
-	May 2009 – Dec 2009
-	 Established BI team services and implemented data warehousing, financial reporting, and service desk tools 
- Model replicated at NAB in Melbourne due to success
+* Delivered on time and within contingency budget.
+* Regular reporting to CIO, CEO, and Board, with inclusion in NZX50 financial communications.
 
+---
 
-	BNZ (NAB Group)
-	IT Delivery Manager (Permanent)
-	Jun 2008 – May 2009
-	 Managed IT service delivery for online banking, ATMs, and vendor management 
- Oversaw data centre transformation and upgrades based on NAB template
+## Auckland Council
 
+**Role:** Programme Manager – SAP Delivery Function (Contract)
+**Dates:** Aug 2019 – Aug 2021
+**Sector:** Local Government
+**Core Technologies:** SAP ECC, SAP CRM, Agile Delivery
 
-	GlaxoSmithKline Consumer Health UK Division
-	IT Services Director (Permanent)
-	Oct 2007 – May 2008
-	 Led IT strategy for CH UK division, including infrastructure refresh and system remediation planning 
- Reported to VP Consumer Health Europe CIO and CHUK CEO 
- Managed a £900m revenue business as part of the wider £9.3bn global consumer business 
- Left GSK after 5 years to migrate family to New Zealand
+### Responsibilities
 
+* Oversaw multiple SAP programmes including Auckland Unlimited demerger, annual rates and licensing programmes, and CRM replacement initiatives.
+* Managed delivery across SAP modules and 70+ integrated line-of-business systems.
+* Led multi-year transition of ICT delivery teams to Agile methodologies.
 
-	GlaxoSmithKline Europe Pharma
-	Europe Pharma Infrastructure Delivery Manager
-	Mar 2004 – Sept 2007
-	* Oversaw Infrastructure strategy, delivery, and operations across 44 countries as part of a 5-person senior management team. 
-* Our main focus was supporting a major 3 yr digital transformation programme (TOP-IT) to mirror business restructuring from country owned, separate financial entities to a pan European Centre’s of Excellence model.
-* The TOP IT programme is the largest I’ve been involved in , and meant standardization and transformation on a huge scale resulting in new pan European implementations for CRM, Marketing and Sales platforms (i.e. Sales force) , major SAP upgrades/re-platforms and migrations (Supply Chain, Manufacturing, Asset Mgt), new Finance and HR platform (Peoplesoft ),a new Outsourced Level 1 / 2 Service Desk service (Siemens) and migration from 44 local country helpdesks to Siemens in Turkey & Ireland, a new Remedy CRM roll out pan Europe for all ICT ITIL related processes, migration of major Oracle systems to new centralized VM Ware based data service in London, Philadelphia and Carolina RTP plus full Symantec AV & Windows Desktop upgrade for 22 k Desktops and Laptops , of which 16k remotes salesforce (required as platforms/ and 300 + desktop applications were end of life during the 3yr transformation) .
-* Many of the major systems were required in multiple languages (Salesforce, SAP, Peoplesoft, Remedy, Microsoft Office). 
-	Business Objects (now part of SAP)
-	Customer Loyalty Manager (Technical Project Manager) 
-	Jan 2001 – Mar 2004
-	 Supported customer retention through project management, technical support intervention, account management, and contract resolution 
- Responsible for customers in UK, Scandinavia, Ireland, South Africa, and Southern Europe 
- Regular travel in Europe and quarterly trips to US/Canada
+### Additional Assignment
 
+* Seconded to MBIE (Wellington) to audit and provide recommendations for a national SAP transformation programme.
 
-	Business Objects
-(now part of SAP)
-	Technical Support Manager
-	Nov 1999 – Jan 2001
-	 Managed European multilingual support team for two product teams. 
- Provided 3rd level technical support and handled escalations for enterprise customers 
- Frequent European and US travel for client and support office visits
+---
 
+## SAP (IBSO) & Auckland Council
 
-	MRO.com (Maximo now part of IBM)
-	Senior Technical Support Analyst
-	Jun 1998 – Oct 1999
-	 Provided multilingual ERP 3rd level technical support to UK, Scandinavian, and Southern European clients 
- Promoted to team lead
+**Role:** Project Director – S/4HANA Transformation (Contract)
+**Dates:** Sept 2018 – Aug 2019
+**Sector:** Local Government / ERP Transformation
+**Core Technologies:** SAP S/4HANA, SAP Hybris, Integration Platforms
 
+### Responsibilities
 
-	
+* Led Auckland Council’s S/4HANA transformation programme on behalf of SAP and Council.
+* Managed ~60 technical and delivery staff across New Zealand, Australia, India, and Europe.
+* Migrated 70+ integrations and SAP Hybris e-commerce platform.
 
-Qualifications 
-Professional Training/Qualifications       
-* SAFe Agile Delivery & Scrum Master Training (Auckland Council via Frank Consulting)
-* PMP certified via PMI (Project Management Institute)
-* ISEB Information Systems Project Management (via British Computer Society - BCS)
-* GSK Six Sigma Green Belt Training for Service Owners (BUS-030-431) – Internal GlaxoSmithKline Green Belt Training (Residential Training Course) 
-* ISEB ITIL Foundation Certificate in IT Service Management (via BCS) (98% pass grade- via BCS)
-* ISEB ITIL Service Managers Certificate – Distinction - November 2007 (via BCS)
-* GlaxoSmithKline - Leading Highly Effective Teams – BUS-030-231, Using ITIL in SCS Infrastructure (TEC-180-586) , Change & Release Management & Exam (TEC-180-510) – 3rd Party Supplier Course
-* AR Remedy CRM Software Training – 3rd Party Supplier Course prior to deploying Remedy CRM across multiple European countries and languages.
-* Crystal Decisions Three Stage Internal Leadership Management Training programme. 
-* Crystal Decisions Project Management Training – External PMI Certified Training Company, Vancouver, Certification available on request. 
-Higher Education 
-University of Greenwich, London: BA Hons. (2.2) International Business Studies with French, (4 yr dual subject sandwich degree inc. work placement with Unilever PLC, Levallois Perret, Paris) 
-Ecole Supérieure de Commerce de Bretagne: 3rd semester of above degree successfully completed at this French business school as pre-requisite to foreign work placement in IT with Unilever in Paris France, which I completed successfully for a year, before returning to complete my degree.
-Foreign Languages 
-French:                         
-* Fluent. I have both studied and worked in France, as part of my degree and throughout my working life. My roles with Maximo, Crystal/ Business Object and GlaxoSmithKline put me in contact weekly with our Paris offices, and I was a regular visitor to the various sites in the country and their customers during my time with all three organizations. I have a UK French A Level and major in French as part of my dual degree (see below)
-Italian:     
-* Fluent  I am of Italian origin and many of my early technical roles in the Software sector and my work at GSK involved working with and also travelling to Italy to manage project work and technical work with Italian clients and colleagues. I have a UK Italian A Level.
+### Outcomes
 
+* Delivered on time and on budget ahead of annual rates issuance impacting 2.2 million ratepayers.
 
-Spanish
-* Beginner/ Intermediate: I have taken classes 2022 and 2023 supporting my 2 sons’ school Spanish curriculum and for my own personal and professional use. I have reasonable conversational level and now hope to progress to Intermediate Level. I have travelled in Spain over the years both for leisure and business purposes
+---
+
+## Fonterra
+
+### SAP Supply Planning Optimisation Replacement
+
+**Role:** Programme Manager (Contract)
+**Dates:** Mar 2018 – Sept 2018
+**Budget:** $12M NZD
+**Core Technologies:** SAP APO, SAP SCM
+
+* Scoped replacement of legacy milk planning optimiser with SAP APO custom solution.
+* Programme paused post-scoping due to organisational restructuring.
+
+### SAP Ariba Global Procurement Transformation
+
+**Role:** Programme Manager (Contract)
+**Dates:** Mar 2017 – Mar 2018
+**Budget:** $17M NZD
+**Core Technologies:** SAP Ariba, SAP Procurement, FICO, SAP BW
+
+* Implemented global procurement platform across 27 sites.
+* Transitioned ~3,000 staff with EY change management support.
+
+---
+
+## Air New Zealand
+
+### Programme Lead – DORIS Phase II
+
+**Dates:** Jun 2015 – Mar 2017
+**Core Technologies:** Jeppesen (Boeing), Agile Delivery
+
+* Replaced legacy pilot and cabin crew rostering systems for ~3,000 staff.
+* Delivered into union negotiation and UAT phase; system now fully operational.
+
+### Programme Lead – Staff Mobile Programme
+
+**Dates:** Oct 2013 – Dec 2014
+**Core Technologies:** Citrix XenMobile, Networking, IDAM
+
+* Led Air NZ’s first enterprise staff mobile application rollout to 5,000+ users.
+
+### Senior Project Manager – Digital
+
+**Dates:** Oct 2012 – Sept 2013
+
+* Delivered PCI compliance and LMS upgrades.
+
+### Senior Project Manager – Tiakina Programme
+
+**Dates:** Feb 2011 – Oct 2012
+**Core Technologies:** SAP, PeopleSoft, VMware, Oracle, IBM Mainframes
+
+* Led multiple infrastructure and application migrations effectively modernising Air NZ’s digital landscape.
+
+---
+
+## Banking & Financial Services (BNZ, ANZ, ASB, Perpetual Insurance)
+
+**Roles:** Technology Programme Manager / IT Delivery Manager / Head of Software & Delivery
+**Dates:** 2008 – 2015
+**Budgets:** Up to $80M NZD
+
+* Led large-scale banking technology programmes including retail refits, credit card exits, data centre transformations, and enterprise delivery functions.
+
+---
+
+## GlaxoSmithKline (UK & Europe)
+
+### IT Services Director – Consumer Health UK
+
+**Dates:** Oct 2007 – May 2008
+
+* Led IT strategy for a £900m revenue division.
+* Reported to European CIO and UK CEO.
+
+### Europe Pharma Infrastructure Delivery Manager
+
+**Dates:** Mar 2004 – Sept 2007
+
+* Oversaw infrastructure delivery across 44 countries.
+* Senior leadership role in the TOP-IT programme, one of GSK’s largest pan-European digital transformations.
+
+---
+
+## Early Career – Enterprise Software
+
+**Companies:** Business Objects, MRO.com (Maximo / IBM)
+
+* Senior and managerial roles in enterprise software support and customer delivery across Europe and North America.
+
+---
+
+## Qualifications & Certifications
+
+* PMP – Project Management Institute
+* SAFe Agile Delivery & Scrum Master
+* ITIL Foundation (98%) and ITIL Service Manager (Distinction)
+* Six Sigma Green Belt (GSK)
+
+---
+
+## Languages
+
+* French: Fluent (professional working proficiency)
+* Italian: Fluent (native-level)
+* Spanish: Beginner to Intermediate
+
+---
+
+## Education
+
+* BA (Hons) International Business Studies with French – University of Greenwich
+* International Business Semester – École Supérieure de Commerce de Bretagne
+
+---
+
+**End of RAG Knowledge File**
