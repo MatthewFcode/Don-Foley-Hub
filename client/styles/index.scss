@@ -634,14 +634,7 @@ details {
    
   }
   
-  &::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, $white-smoke, transparent);
-    margin: 1.5rem auto 0;
-  }
+ 
 }
 
 .timeline-wrapper {
