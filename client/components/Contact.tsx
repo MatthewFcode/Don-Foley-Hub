@@ -69,7 +69,7 @@ function Contact() {
   }, [])
 
   return (
-    <footer className="contact-container">
+    <footer id="contact" className="contact-container">
       <div className="contact-content">
         {/* Left Side - Contact Form */}
         <div className="contact-form-section scroll-fade-left">

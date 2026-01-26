@@ -29,7 +29,7 @@ function Nav() {
           <Link to="/chat">
             <p>Frank AI</p>
           </Link>
-          <a href="">
+          <a href="#contact">
             <p>Contact</p>
           </a>
           <a href="/Don-Foley-CV.pdf" target="_blank">
