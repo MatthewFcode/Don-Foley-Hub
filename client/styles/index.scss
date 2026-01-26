@@ -882,6 +882,21 @@ details {
 // FRANK AI PAGE
 // ============================================
 
+@media (max-width: 768px) {
+  .frank-lottie-container {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .frank-header {
+    padding: 4rem 1rem 1rem;
+  }
+}
+
+
+
+// end of responsive fixes 
 .frank-container {
   min-height: 100vh;
   background: $black;
@@ -1471,6 +1486,8 @@ details {
     }
   }
 }
+
+
 
 //========================================
 // CONTACT / FOOTER SECTION
