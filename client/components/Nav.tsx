@@ -35,7 +35,7 @@ function Nav() {
           </Link>
 
           <Link to="/chat">
-            <p>Frank AI</p>
+            <p>Franky AI</p>
           </Link>
           <a href="#contact">
             <p>Contact</p>

@@ -75,7 +75,9 @@ function Contact() {
         <div className="contact-form-section scroll-fade-left">
           <div className="section-header">
             <h2>Get In Touch</h2>
-            <p>Let's discuss your next project</p>
+            <p>
+              <b>Let's discuss your next project</b>
+            </p>
           </div>
 
           {state.succeeded ? (
@@ -139,7 +141,9 @@ function Contact() {
         <div className="contact-info-section scroll-fade-right">
           <div className="section-header">
             <h2>Connect With Don</h2>
-            <p>Multiple ways to reach out</p>
+            <p>
+              <b>Multiple ways to reach out</b>
+            </p>
           </div>
 
           <div className="profile-card">
