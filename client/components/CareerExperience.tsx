@@ -6,8 +6,8 @@ function CareerExperience() {
       <Nav />
       <div id="career-experience" className="career-experience-container">
         <div className="experience-header">
-          <img src="/images/don-elephant.JPG" alt="Don" />
-          <h1>Experience.</h1>
+          <img src="/images/don-linkedin.jpeg" alt="Don" />
+          <h1>Client Delivery Portfolio.</h1>
         </div>
         <section className="experience">
           <div className="role">
