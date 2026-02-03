@@ -296,6 +296,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   margin-top: 3rem;
+  margin-bottom: 0.59rem;
   opacity: 0;
   animation: fadeInUp 1s $transition-smooth 1.6s forwards;
   
@@ -358,6 +359,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: -2rem;
 }
 
 .experience-header {
