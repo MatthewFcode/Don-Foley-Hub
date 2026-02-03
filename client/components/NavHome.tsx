@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 
-function Nav() {
+function NavHome() {
   return (
     <div className="nav-container">
       <div className="nav-content">
@@ -10,18 +10,16 @@ function Nav() {
             href="https://www.linkedin.com/in/donoughfoley/"
             target="_blank"
             rel="noreferrer"
+            className="no-underline-don"
           >
-            <img src="/images/don-golf.JPG" alt="Don Foley" />
+            <p>Don Foley</p>
           </a>
-          <p>Don Foley</p>
         </div>
         <div className="nav-links">
           <Link to="/">
             <p>Home</p>
           </Link>
-          <a href="#career-experience">
-            <p>Experience</p>
-          </a>
+
           <Link to="/timeline">
             <p>Career Timeline</p>
           </Link>
@@ -29,8 +27,8 @@ function Nav() {
           <Link to="/chat">
             <p>Frank AI</p>
           </Link>
-          <a href="">
-            <p>Contact</p>
+          <a href="/Don-Foley-CV.pdf" target="_blank">
+            Download my CV
           </a>
         </div>
       </div>
@@ -38,4 +36,4 @@ function Nav() {
   )
 }
 
-export default Nav
+export default NavHome

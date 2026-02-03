@@ -10,15 +10,12 @@ function Home() {
         <NavHome />
         <div className="hero-section">
           <div className="hero-titles">
-            <h1>System</h1>
-            <h1>Scale</h1>
-            <h1>Implementation</h1>
+            <h1>JPMM Consulting</h1>
+            <h1>ERP & HRIS </h1>
+            <h1>System Implementation</h1>
           </div>
           <div className="hero-description">
-            <p>
-              Don doesn't just do IT; Don designs, governs and delivers systems
-              at a national and multi-national scale.
-            </p>
+            <p>Large Scale Technology Programme Management.</p>
           </div>
           <div className="scroll-indicator">
             <p className="scroll-text">Scroll Down</p>

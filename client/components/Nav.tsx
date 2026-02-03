@@ -6,14 +6,22 @@ function Nav() {
       <div className="nav-content">
         <div className="nav-brand">
           {' '}
-          <a
+          {/* <a
             href="https://www.linkedin.com/in/donoughfoley/"
             target="_blank"
             rel="noreferrer"
           >
             <img src="/images/don-golf.JPG" alt="Don Foley" />
+          </a> */}
+          <a
+            href="https://www.linkedin.com/in/donoughfoley/"
+            target="_blank"
+            rel="noreferrer"
+            className="no-underline-don"
+          >
+            {' '}
+            <p>Don Foley</p>
           </a>
-          <p>Don Foley</p>
         </div>
         <div className="nav-links">
           <Link to="/">
@@ -27,7 +35,7 @@ function Nav() {
           </Link>
 
           <Link to="/chat">
-            <p>Frank AI</p>
+            <p>Franky AI</p>
           </Link>
           <a href="#contact">
             <p>Contact</p>
