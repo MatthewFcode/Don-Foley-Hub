@@ -184,6 +184,7 @@ body {
   }
 }
 
+
 // ============================================
 // HOME PAGE
 // ============================================
@@ -236,11 +237,14 @@ body {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 2rem;
     }
     
     &:nth-child(2) {
       animation: titleReveal 1s $transition-smooth 0.5s forwards;
       color: $white-smoke;
+      font-size: clamp(4rem, 10vw, 12rem);
+      margin-bottom: 1rem;
     }
     
     &:nth-child(3) {
@@ -249,7 +253,10 @@ body {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      font-size: clamp(4rem, 15vw, 11rem);
+      
     }
+    
   }
 }
 
