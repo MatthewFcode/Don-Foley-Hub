@@ -816,6 +816,14 @@ function CareerExperience() {
           </div>
         </section>
       </div>
+      <div className="scroll-indicator">
+        <p className="scroll-text">Scroll Down</p>
+        <div className="arrows">
+          <div className="arrow"></div>
+          <div className="arrow"></div>
+          <div className="arrow"></div>
+        </div>
+      </div>
     </>
   )
 }
