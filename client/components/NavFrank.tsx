@@ -21,7 +21,7 @@ function NavHome() {
           </Link>
 
           <Link to="/timeline">
-            <p>Career Timeline</p>
+            <p>Career Timeline & References</p>
           </Link>
 
           <Link to="/chat">

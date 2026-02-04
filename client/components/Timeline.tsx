@@ -1,5 +1,6 @@
 import Nav from './Nav.tsx'
-import Contact from './Contact.tsx'
+import NavHome from './NavFrank.tsx'
+import References from './References.tsx'
 
 function CareerTimeline() {
   const timelineData = [
@@ -112,7 +113,7 @@ function CareerTimeline() {
 
   return (
     <>
-      <Nav />
+      <NavHome />
       <div className="career-timeline-container" id="timeline">
         <div className="timeline-header">
           <h1>Career Timeline</h1>
@@ -157,8 +158,17 @@ function CareerTimeline() {
           </div>
         </div>
       </div>
+      <div className="scroll-indicator">
+        <p className="scroll-text">Scroll Down</p>
+        <div className="arrows">
+          <div className="arrow"></div>
+          <div className="arrow"></div>
+          <div className="arrow"></div>
+        </div>
+      </div>
       <div>
-        <Contact />
+        {' '}
+        <References />
       </div>
     </>
   )
