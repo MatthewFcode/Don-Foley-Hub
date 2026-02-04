@@ -25,7 +25,7 @@ function NavHome() {
           </Link>
 
           <Link to="/chat">
-            <p>Frank AI</p>
+            <p>Franky AI</p>
           </Link>
           <a href="/Don-Foley-CV.pdf" target="_blank">
             Download my CV

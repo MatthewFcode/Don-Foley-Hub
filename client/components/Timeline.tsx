@@ -1,4 +1,3 @@
-import Nav from './Nav.tsx'
 import NavHome from './NavFrank.tsx'
 import References from './References.tsx'
 
@@ -116,7 +115,7 @@ function CareerTimeline() {
       <NavHome />
       <div className="career-timeline-container" id="timeline">
         <div className="timeline-header">
-          <h1>Career Timeline</h1>
+          <h1>Career Timeline.</h1>
           <img src="/images/workday.jpeg" alt="Don" />
           <div className="timeline-scroll-indicator"></div>
         </div>
