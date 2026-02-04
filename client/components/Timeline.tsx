@@ -70,18 +70,44 @@ function CareerTimeline() {
       company: 'ASB',
       years: '2010-2011',
       position: 'bottom',
+      logo: '/images/asb.png',
+      title: 'Technology Project Manager',
+    },
+    {
+      company: 'ANZ',
+      years: '2010 (May-Jun)',
+      position: 'top',
       logo: '/images/anz.webp',
       title: 'Technology Project Manager',
     },
-    { company: 'ANZ', years: '2010 (May-Jun)', position: 'top' },
-    { company: 'BNZ', years: '2008-2010', position: 'bottom' },
-    { company: 'GlaxoSmithKline (UK)', years: '2004-2008', position: 'top' },
+    {
+      company: 'BNZ',
+      years: '2008-2010',
+      position: 'bottom',
+      logo: '/images/bnz.jpeg',
+      title: 'Programme Lead Technology',
+    },
+    {
+      company: 'GlaxoSmithKline (UK)',
+      years: '2004-2008',
+      position: 'top',
+      logo: '/images/glaxo.jpeg',
+      title: 'IT Services Director',
+    },
     {
       company: 'Business Objects (SAP)',
       years: '1999-2004',
       position: 'bottom',
+      logo: '/images/Sap.png',
+      title: 'Customer Advocacy Manager',
     },
-    { company: 'Maximo (IBM)', years: '1998-1999', position: 'top' },
+    {
+      company: 'Maximo (IBM)',
+      years: '1998-1999',
+      position: 'top',
+      logo: '/images/IBM.svg',
+      title: 'Senior Technical Support Analyst',
+    },
   ]
 
   return (
@@ -115,7 +141,15 @@ function CareerTimeline() {
                 ></div>
 
                 <div className={`timeline-content content-${item.position}`}>
-                  <h3>{item.company}</h3>
+                  <div className="company-header">
+                    <img
+                      src={item.logo}
+                      alt={`${item.company} logo`}
+                      className="company-logo"
+                    />
+                    <h3>{item.company}</h3>
+                  </div>
+                  <p className="job-title">{item.title}</p>
                   <p className="timeline-dates">{item.years}</p>
                 </div>
               </div>

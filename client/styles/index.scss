@@ -619,14 +619,13 @@ details {
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
   align-items: center;
 }
 
 .timeline-header {
   display: flex;
- align-items: center;
-  
+  align-items: center;
   gap: 2rem;
   text-align: center;
   margin-bottom: 1rem;
@@ -634,8 +633,6 @@ details {
   transform: translateY(30px);
   animation: fadeInUp 0.8s $transition-smooth 0.2s forwards;
 
-
-  
   h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     display: flex;
@@ -648,13 +645,8 @@ details {
     background-clip: text;
     margin-bottom: 0.5rem;
   }
+  
   img {
-    // border-radius: 50%;
-    // width:  190px;
-    // height: 190px;
-    // padding: 0rem;
-    // margin: 0rem;
-    // object-fit: cover;
     width: 220px;
     height: 220px;
     border-radius: 50%;
@@ -666,17 +658,14 @@ details {
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     }
-   
   }
-  
- 
 }
 
 .timeline-wrapper {
   position: relative;
   overflow-x: auto;
   overflow-y: visible;
-  padding: 12rem 2rem;
+  padding: 16rem 2rem;
   margin: 0 auto;
   width: 100%;
   flex: 1;
@@ -805,21 +794,29 @@ details {
 
 .timeline-connector {
   position: absolute;
-  top: 0;
   left: 50%;
-  transform: translateX(-50%);
   width: 2px;
-  background: linear-gradient(to bottom, $white-smoke, rgba(255, 255, 255, 0.3));
-  
-  &.connector-top {
-    bottom: 100%;
-    height: 120px;
-  }
-  
-  &.connector-bottom {
-    top: 100%;
-    height: 120px;
-  }
+  transform: translateX(-50%);
+}
+
+.connector-top {
+  bottom: 50%;
+  height: 120px;
+  background: linear-gradient(
+    to top,
+    $white-smoke,
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+.connector-bottom {
+  top: 50%;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    $white-smoke,
+    rgba(255, 255, 255, 0.3)
+  );
 }
 
 .timeline-content {
@@ -828,11 +825,11 @@ details {
   border: 1px solid $white-smoke;
   border-radius: 8px;
   padding: 1.25rem 1.5rem;
-  min-width: 200px;
-  text-align: center;
+  min-width: 220px;
+  max-width: 280px;
+  text-align: left;
   backdrop-filter: blur(10px);
   transition: all 0.3s $transition-smooth;
-  white-space: nowrap;
   
   &.content-top {
     bottom: calc(100% + 130px);
@@ -847,21 +844,45 @@ details {
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-5px);
   }
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  
+  .company-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
   
   h3 {
     font-size: 1.1rem;
     font-weight: 700;
     color: $white-smoke;
-    margin-bottom: 0.5rem;
+    margin: 0;
     letter-spacing: -0.01em;
+    line-height: 1.2;
   }
-  
-  .timeline-dates {
-    font-size: 0.9rem;
-    color: #999;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
+}
+
+.job-title {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.timeline-dates {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin: 0;
 }
 
 .right-sunshine-scroll {
@@ -877,7 +898,6 @@ details {
   margin-left: -1.3rem;
   gap: 0.25rem;
   margin-top: -1rem;
-  
   
   .arrow-horizontal {
     width: 24px;
