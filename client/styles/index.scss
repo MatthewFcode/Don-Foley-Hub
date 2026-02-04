@@ -2052,3 +2052,278 @@ details {
     margin-top: 3rem;
   }
 }
+
+// ============================================
+// REFERENCES PAGE
+// ============================================
+
+.references-container {
+  min-height: 100vh;
+  background: $black;
+  padding: 7rem 2rem 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.references-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s $transition-smooth 0.2s forwards;
+  
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, $white-smoke 0%, #999 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+  }
+  
+  img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid $white-smoke;
+    transition: all 0.3s $transition-smooth;
+    
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+
+.references-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reference-card {
+  // background: rgba(26, 26, 26, 0.5);
+  background: rgb(45, 45, 45);
+  border: 1px solid $white-smoke;
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s $transition-smooth;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{0.3 + ($i * 0.15)}s;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(to bottom, $white-smoke, #666);
+    transition: height 0.4s $transition-smooth;
+  }
+  
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-8px);
+    background: rgba(26, 26, 26, 0.8);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    
+    &::before {
+      height: 100%;
+    }
+    
+    .reference-photo {
+      transform: scale(1.1);
+      border-color: $white-smoke;
+    }
+  }
+}
+
+.reference-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.reference-info {
+  flex: 1;
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $white-smoke;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  .reference-position {
+    font-size: 0.95rem;
+    color: #999;
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.reference-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  transition: all 0.3s $transition-smooth;
+}
+
+.reference-quote {
+  margin: 0;
+  padding: 0;
+  border-left: 3px solid $white-smoke;
+  padding-left: 1.5rem;
+  
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #ccc;
+    font-style: italic;
+    margin: 0;
+    
+    &::before {
+      content: '';
+      display: none;
+    }
+    
+    &::after {
+      content: '';
+      display: none;
+    }
+  }
+}
+
+// Responsive adjustments for References
+@media (max-width: 1024px) {
+  .references-container {
+    padding: 6rem 1.5rem 3rem;
+  }
+  
+  .references-header {
+    margin-bottom: 3rem;
+    
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    
+    img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+  
+  .references-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .references-container {
+    padding: 6rem 1rem 2rem;
+  }
+  
+  .references-header {
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    
+    h1 {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+    }
+    
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  .references-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .reference-card {
+    padding: 1.5rem;
+    
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+  
+  .reference-header {
+    gap: 1rem;
+  }
+  
+  .reference-info {
+    h3 {
+      font-size: 1.25rem;
+    }
+    
+    .reference-position {
+      font-size: 0.85rem;
+    }
+  }
+  
+  .reference-photo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .reference-quote {
+    padding-left: 1rem;
+    border-left-width: 2px;
+    
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}

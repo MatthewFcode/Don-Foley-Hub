@@ -31,7 +31,7 @@ function Nav() {
             <p>Experience</p>
           </a> */}
           <Link to="/timeline">
-            <p>Career Timeline</p>
+            <p>Career Timeline & References</p>
           </Link>
 
           <Link to="/chat">

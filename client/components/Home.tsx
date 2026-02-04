@@ -1,4 +1,4 @@
-import NavHome from './NavHome.tsx'
+import NavHome from './NavFrank.tsx'
 import CareerExperience from './CareerExperience.tsx'
 import Contact from './Contact.tsx'
 //import Timeline from './Timeline.tsx'

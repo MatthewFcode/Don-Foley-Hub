@@ -1,7 +1,7 @@
 import aiAnimation from '../../src/animations/AI logo Foriday.json'
 import Lottie from 'lottie-react'
 import { useState, useRef, useEffect } from 'react'
-import NavHome from './NavHome.tsx'
+import NavHome from './NavFrank.tsx'
 
 interface Message {
   role: 'user' | 'assistant'

@@ -39,16 +39,33 @@ function References() {
 
   return (
     <>
-      {references.map((item: Reference, index: number) => (
-        <div key={index}>
-          <h3>
-            <span>{item.name}</span>
-            <img src={item.photo} alt="reference profile" />
-          </h3>
-          <p>{item.position}</p>
-          <p>{item.reference}</p>
+      <div className="references-container">
+        <div className="references-header">
+          <h1>References.</h1>
+          <img src="/images/don-linkedin.jpeg" alt="Don" />
         </div>
-      ))}
+
+        <div className="references-grid">
+          {references.map((item: Reference, index: number) => (
+            <div className="reference-card" key={index}>
+              <div className="reference-header">
+                <div className="reference-info">
+                  <h3>{item.name}</h3>
+                  <p className="reference-position">{item.position}</p>
+                </div>
+                <img
+                  src={item.photo}
+                  alt={`${item.name} profile`}
+                  className="reference-photo"
+                />
+              </div>
+              <blockquote className="reference-quote">
+                <p>"{item.reference}"</p>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   )
 }
