@@ -621,6 +621,7 @@ details {
   flex-direction: column;
   overflow: visible;
   align-items: center;
+  
 }
 
 .timeline-header {
@@ -672,6 +673,7 @@ details {
   flex: 1;
   display: flex;
   align-items: center;
+  margin-top: -3rem;
   
   &::-webkit-scrollbar {
     height: 8px;
@@ -826,8 +828,8 @@ details {
   border: 1px solid $white-smoke;
   border-radius: 8px;
   padding: 1.25rem 1.5rem;
-  min-width: 220px;
-  max-width: 280px;
+  min-width: 280px;
+  max-width: 330px;
   text-align: left;
   backdrop-filter: blur(10px);
   transition: all 0.3s $transition-smooth;
@@ -872,7 +874,7 @@ details {
 }
 
 .job-title {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: #ccc;
   margin-bottom: 0.5rem;
   line-height: 1.4;
