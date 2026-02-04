@@ -4,12 +4,14 @@ import App from './components/App'
 import Frank from './components/Frank.tsx'
 import CareerTimeline from './components/Timeline.tsx'
 import Contact from './components/Contact.tsx'
+import References from './components/References.tsx'
 const routes = createRoutesFromElements(
   <>
     <Route index element={<App />} />
     <Route path="chat" element={<Frank />} />
     <Route path="timeline" element={<CareerTimeline />} />
     <Route path="contact" element={<Contact />} />
+    <Route path="donkey" element={<References />} />
   </>,
 )
 
