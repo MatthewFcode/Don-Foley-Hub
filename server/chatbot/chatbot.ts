@@ -153,7 +153,11 @@ ${contextText}
         {
           handleLLMNewToken(token: string) {
             fullResponse += token
-            onStream(token)
+            // onStream(token)
+            for (const char of token) {
+              console.log('Token:', char)
+              onStream(char)
+            }
           },
         },
       ],
