@@ -125,65 +125,104 @@ function Frank() {
     <>
       <NavHome />
 
-      <div className="frank-container">
-        <div className="frank-header scroll-fade" ref={headerRef}>
-          <h1>Meet Franky</h1>
-          <h2>
-            Don's Personal AI Assistant. Ask me anything about Don's
-            professional experience, career achievements, or skills.
-          </h2>
-          <div className="frank-lottie-container">
-            <div className="lottie-wrapper">
-              <Lottie
-                lottieRef={lottieRef}
-                animationData={aiAnimation}
-                loop
-                autoplay={false}
-                className="frank"
-              />
+      <div className="frank-page-container">
+        <div className="frank-layout">
+          {/* Left Panel: Branding & Animation */}
+          <div className="frank-left-panel scroll-fade" ref={headerRef}>
+            <div className="frank-branding">
+              <h1 className="frank-title">Meet Franky</h1>
+              <div className="frank-status-tag">
+                <span className="status-dot"></span>
+                Online & Ready
+              </div>
+              <p className="frank-subtitle">
+                Don's Personal AI Assistant. Ask me anything about Don's
+                professional experience, career achievements, or skills.
+              </p>
+            </div>
+            
+            <div className="frank-lottie-container">
+              <div className="lottie-wrapper">
+                <Lottie
+                  lottieRef={lottieRef}
+                  animationData={aiAnimation}
+                  loop
+                  autoplay={false}
+                  className="frank-animation"
+                />
+                <div className="lottie-glow"></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="frank-conversation" ref={conversationRef}>
-          {messages.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`message ${
-                msg.role === 'user' ? 'user-message' : 'ai-message'
-              }`}
-            >
-              <div className="message-bubble">
-                <strong>{msg.role === 'user' ? 'You' : 'Frank'}</strong>
-                <p>{msg.content}</p>
-              </div>
+          {/* Right Panel: Chat Interface */}
+          <div className="frank-right-panel">
+            <div className="frank-conversation-container" ref={conversationRef}>
+              {messages.length === 0 && !streamingResponse && (
+                <div className="frank-welcome-message">
+                  <p>How can I help you today?</p>
+                </div>
+              )}
+              
+              {messages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`message ${
+                    msg.role === 'user' ? 'user-message' : 'ai-message'
+                  }`}
+                >
+                  <div className="message-bubble">
+                    <span className="message-role">
+                      {msg.role === 'user' ? 'You' : 'Frank'}
+                    </span>
+                    <p className="message-content">{msg.content}</p>
+                  </div>
+                </div>
+              ))}
+
+              {streamingResponse && (
+                <div className="message ai-message">
+                  <div className="message-bubble">
+                    <span className="message-role">Frank</span>
+                    <p className="message-content streaming-text">
+                      {streamingResponse}
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
-          ))}
 
-          {streamingResponse && (
-            <div className="message ai-message">
-              <div className="message-bubble">
-                <strong>Frank</strong>
-                <p className="streaming-text">{streamingResponse}</p>
-              </div>
+            <div className="frank-input-area scroll-fade" ref={inputRef}>
+              <form onSubmit={handleSubmit} className="frank-input-form">
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    name="prompt"
+                    placeholder="Type your message..."
+                    onChange={handleChange}
+                    value={form.prompt}
+                    disabled={loading}
+                    className="frank-input"
+                  />
+                  <button 
+                    type="submit" 
+                    disabled={loading || !form.prompt.trim()} 
+                    className="frank-send-button"
+                  >
+                    {loading ? (
+                      <div className="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    ) : (
+                      'Send'
+                    )}
+                  </button>
+                </div>
+              </form>
             </div>
-          )}
-        </div>
-
-        <div className="frank-input-container scroll-fade" ref={inputRef}>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="prompt"
-              placeholder="Ask me about Don's experience..."
-              onChange={handleChange}
-              value={form.prompt}
-              disabled={loading}
-            />
-            <button type="submit" disabled={loading}>
-              {loading ? 'Thinking...' : 'Send'}
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </>

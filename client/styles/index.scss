@@ -1398,506 +1398,365 @@ details {
 }
 
 // ============================================
-// FRANK AI PAGE - RESPONSIVE
+// FRANK AI PAGE REDESIGN
 // ============================================
 
-.frank-container {
-  min-height: 100vh;
+.frank-page-container {
+  height: 100vh;
   background: $black;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
   position: relative;
   
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.02) 0%, transparent 60%);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
     pointer-events: none;
   }
 }
 
-.frank-header {
-  position: sticky;
-  top: 0;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 6rem 1.5rem 2rem;
-  z-index: 100;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s $transition-smooth 0.2s forwards;
-  
-  @include respond-to($desktop-sm) {
-    padding: 5.5rem 1.5rem 1.75rem;
-  }
-  
+.frank-layout {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-top: 80px; // Space for Nav
+  overflow: hidden;
+
   @include respond-to($tablet) {
-    padding: 5rem 1.25rem 1.5rem;
+    flex-direction: column;
+    padding-top: 60px;
+    overflow-y: auto;
   }
+}
+
+/* LEFT PANEL - BRANDING & ANIMATION */
+.frank-left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+
+  @include respond-to($desktop-sm) {
+    padding: 2rem;
+  }
+
+  @include respond-to($tablet) {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 1.5rem;
+  }
+}
+
+.frank-branding {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.frank-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.frank-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #4caf50;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4caf50;
+    animation: pulseStatus 2s infinite;
+  }
+}
+
+@keyframes pulseStatus {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+.frank-subtitle {
+  font-size: 1.1rem;
+  color: #999;
+  line-height: 1.6;
   
   @include respond-to($mobile) {
-    padding: 4.5rem 1rem 1.25rem;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    color: $white-smoke;
-    margin: 0 0 1rem 0;
-    text-align: center;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, $white-smoke 0%, #999 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    
-    @include respond-to($tablet) {
-      font-size: clamp(1.75rem, 5vw, 3rem);
-      margin-bottom: 0.85rem;
-    }
-    
-    @include respond-to($mobile) {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      margin-bottom: 0.75rem;
-    }
-  }
-
-  h2 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #999;
-    margin: 0 auto 1.5rem;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 700px;
-    letter-spacing: -0.01em;
-    
-    @include respond-to($tablet) {
-      font-size: 1rem;
-      margin-bottom: 1.25rem;
-      max-width: 600px;
-    }
-    
-    @include respond-to($mobile) {
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      max-width: 100%;
-      padding: 0 0.5rem;
-    }
-  }
-  
-  &::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, $white-smoke, transparent);
-    margin: 1.5rem auto 0;
-    
-    @include respond-to($mobile) {
-      width: 50px;
-      margin: 1rem auto 0;
-    }
+    font-size: 1rem;
   }
 }
 
 .frank-lottie-container {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: -6rem;
-  margin-top: -6rem;
-  opacity: 0;
-  transform: scale(0.9);
-  animation: scaleIn 1s $transition-smooth 0.6s forwards;
   
-  @include respond-to($desktop-sm) {
-    margin-bottom: -5rem;
-    margin-top: -5rem;
-  }
-  
-  @include respond-to($tablet) {
-    margin-bottom: -4rem;
-    margin-top: -4rem;
-  }
-  
-  @include respond-to($mobile) {
-    margin-bottom: -2.5rem;
-    margin-top: -2.5rem;
-  }
-
   .lottie-wrapper {
-    width: 450px;
-    height: 450px;
+    width: clamp(250px, 40vw, 500px);
+    height: clamp(250px, 40vw, 500px);
     position: relative;
     
-    @include respond-to($desktop-sm) {
-      width: 380px;
-      height: 380px;
-    }
-    
     @include respond-to($tablet) {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
     }
-    
-    @include respond-to($mobile) {
-      width: 220px;
-      height: 220px;
-    }
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-      border-radius: 50%;
-      animation: pulseGlow 3s ease-in-out infinite;
-      
-      @include respond-to($tablet) {
-        width: 220px;
-        height: 220px;
-      }
-      
-      @include respond-to($mobile) {
-        width: 160px;
-        height: 160px;
-      }
-    }
+  }
+
+  .frank-animation {
+    width: 100%;
+    height: 100%;
+  }
+
+  .lottie-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%; height: 60%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
   }
 }
 
-@keyframes scaleIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
+/* RIGHT PANEL - CHAT INTERFACE */
+.frank-right-panel {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.01);
+  position: relative;
+
+  @include respond-to($tablet) {
+    flex: 1;
+    min-height: 500px;
   }
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-}
-
-.frank-conversation {
+.frank-conversation-container {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem 1.5rem;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  
-  @include respond-to($tablet) {
-    padding: 1.75rem 1.25rem;
-  }
-  
-  @include respond-to($mobile) {
-    padding: 1.5rem 1rem;
-  }
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  scroll-behavior: smooth;
 
-  &::-webkit-scrollbar {
-    width: 8px;
-    
-    @include respond-to($mobile) {
-      width: 6px;
-    }
-  }
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
 
-  &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-  }
+  @include respond-to($desktop-sm) { padding: 2rem; }
+  @include respond-to($mobile) { padding: 1.5rem; }
+}
 
-  &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-  }
+.frank-welcome-message {
+  text-align: center;
+  margin-top: 4rem;
+  color: #666;
+  font-style: italic;
+  font-size: 1.1rem;
 }
 
 .message {
   display: flex;
-  margin-bottom: 1.5rem;
-  animation: messageSlideIn 0.4s $transition-smooth;
-  
-  @include respond-to($mobile) {
-    margin-bottom: 1.25rem;
-  }
+  width: 100%;
+  animation: messageFadeIn 0.5s $transition-smooth forwards;
 
-  &.user-message {
-    justify-content: flex-end;
+  &.user-message { justify-content: flex-end; }
+  &.ai-message { justify-content: flex-start; }
+}
 
-    .message-bubble {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-      color: $white-smoke;
-      border: 3px solid $white-smoke;
-      border-radius: 18px 18px 4px 18px;
-      
-      @include respond-to($mobile) {
-        border-width: 2px;
-        border-radius: 16px 16px 3px 16px;
-      }
-      
-      strong {
-        color: #999;
-      }
-    }
-  }
-
-  &.ai-message {
-    justify-content: flex-start;
-
-    .message-bubble {
-      background: rgba(26, 26, 26, 0.8);
-      color: $white-smoke;
-      border: 3px solid $white-smoke;
-      border-radius: 18px 18px 18px 4px;
-      backdrop-filter: blur(10px);
-      
-      @include respond-to($mobile) {
-        border-width: 2px;
-        border-radius: 16px 16px 16px 3px;
-      }
-      
-      strong {
-        background: linear-gradient(135deg, $white-smoke 0%, #999 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-    }
-  }
+@keyframes messageFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .message-bubble {
-  max-width: 70%;
-  padding: 1rem 1.25rem;
-  word-wrap: break-word;
+  max-width: 80%;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  position: relative;
+  transition: transform 0.2s ease;
+
+  &:hover { transform: translateY(-2px); }
+
+  .user-message & {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-right-radius: 4px;
+    color: #fff;
+  }
+
+  .ai-message & {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom-left-radius: 4px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.message-role {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+  color: #666;
+
+  .ai-message & { color: #aaa; }
+}
+
+.message-content {
+  margin: 0;
+  font-size: 1rem;
   line-height: 1.6;
-  transition: transform 0.2s $transition-smooth;
-  
-  @include respond-to($tablet) {
-    max-width: 80%;
-    padding: 0.95rem 1.15rem;
-  }
+  color: #ddd;
   
   @include respond-to($mobile) {
-    max-width: 85%;
-    padding: 0.875rem 1rem;
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    
-    @include respond-to($mobile) {
-      transform: translateY(-1px);
-    }
-  }
-
-  strong {
-    display: block;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    
-    @include respond-to($mobile) {
-      font-size: 0.65rem;
-      margin-bottom: 0.4rem;
-    }
-  }
-
-  p {
-    margin: 0;
-    color: #ccc;
-    font-size: 1rem;
-    
-    @include respond-to($mobile) {
-      font-size: 0.95rem;
-    }
+    font-size: 0.95rem;
   }
 }
 
-.streaming-text {
-  display: inline-block;
-  
-  &::after {
-    content: '▋';
-    animation: blink 1s step-end infinite;
-    margin-left: 2px;
-    color: $white-smoke;
-  }
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes messageSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.frank-input-container {
-  position: sticky;
-  bottom: 0;
-  background: rgba(10, 10, 10, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
+/* INPUT AREA */
+.frank-input-area {
+  padding: 2rem 3rem;
+  background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(20px);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s $transition-smooth 1s forwards;
-  
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
   @include respond-to($tablet) {
-    padding: 1.25rem;
+    padding: 1.5rem 2rem;
   }
+  
+  @include respond-to($mobile) { 
+    padding: 1rem; 
+  }
+}
+
+.frank-input-form {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:focus-within {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.02);
+    }
+  }
+}
+
+.frank-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+
+  &:focus { outline: none; }
+  &::placeholder { color: #555; }
+}
+
+.frank-send-button {
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover:not(:disabled) { background: #eee; transform: scale(1.02); }
+  &:active:not(:disabled) { transform: scale(0.98); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
   
   @include respond-to($mobile) {
-    padding: 1rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
   }
+}
 
-  form {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    gap: 0.75rem;
+/* TYPING INDICATOR */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  
+  span {
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    animation: typingBounce 1s infinite;
     
-    @include respond-to($mobile) {
-      flex-direction: column;
-      gap: 0.6rem;
-    }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.4s; }
   }
+}
 
-  input {
-    flex: 1;
-    padding: 1rem 1.5rem;
-    border: 3px solid $white-smoke;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.3s $transition-smooth;
-    background: rgba(26, 26, 26, 0.5);
-    color: $white-smoke;
-    font-family: inherit;
-    
-    @include respond-to($tablet) {
-      padding: 0.95rem 1.35rem;
-      font-size: 0.9rem;
-    }
-    
-    @include respond-to($mobile) {
-      padding: 0.875rem 1.25rem;
-      font-size: 0.88rem;
-      border-width: 2px;
-      border-radius: 10px;
-    }
+@keyframes typingBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
 
-    &:focus {
-      border-color: rgba(255, 255, 255, 0.6);
-      background: rgba(26, 26, 26, 0.8);
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
-    }
+.streaming-text::after {
+  content: '▋';
+  animation: cursorBlink 1s step-end infinite;
+  margin-left: 2px;
+}
 
-    &::placeholder {
-      color: #666;
-    }
-  }
-
-  button {
-    padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, $white-smoke 0%, #999 100%);
-    color: $black;
-    border: none;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s $transition-smooth;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    position: relative;
-    overflow: hidden;
-    
-    @include respond-to($tablet) {
-      padding: 0.95rem 2rem;
-      font-size: 0.9rem;
-    }
-    
-    @include respond-to($mobile) {
-      padding: 0.875rem 1.5rem;
-      font-size: 0.88rem;
-      border-radius: 10px;
-      width: 100%;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-
-    &:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-      
-      @include respond-to($mobile) {
-        transform: translateY(-1px);
-      }
-      
-      &::before {
-        width: 300px;
-        height: 300px;
-      }
-    }
-
-    &:active:not(:disabled) {
-      transform: translateY(0);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-  }
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 // ============================================
