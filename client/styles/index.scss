@@ -1425,7 +1425,7 @@ details {
   width: 100%;
   max-width: 1800px;
   margin: 0 auto;
-  padding-top: 80px; // Space for Nav
+  padding-top: 100px; // Space for Nav
   overflow: hidden;
 
   @include respond-to($tablet) {
@@ -1522,6 +1522,7 @@ details {
   justify-content: center;
   
   .lottie-wrapper {
+    margin-top: -2rem;
     width: clamp(500px, 350vw, 800px);
   height: clamp(500px, 37vw, 800px);
     position: relative;
