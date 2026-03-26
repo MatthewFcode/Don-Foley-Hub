@@ -79,7 +79,7 @@ async function retrieveContext(query: string) {
   const { data, error } = await supabase.rpc('match_documents', {
     // supabase Postgres function that compares all the vectors and returns the 5 most similar chunks
     query_embedding: embedding,
-    match_count: 5,
+    match_count: 2,
   })
 
   if (error) {
@@ -112,16 +112,24 @@ export async function chatBot(
 
     /* -------- Retrieve CV context -------- */
     const contextChunks = await retrieveContext(userMessage) // call the retrieve function to get the 5 most similar chunks
+    const sortedChunks = contextChunks.sort(
+      (a, b) => (b.similarity = a.similarity),
+    )
 
-    const contextText =
-      contextChunks.length > 0
-        ? contextChunks
-            .map(
-              (c, i) =>
-                `Source ${i + 1} (similarity ${c.similarity.toFixed(2)}):\n${c.content}`, // formatted into readable text (LLMS do not read vectors)
-            )
-            .join('\n\n')
-        : 'No relevant CV content found.'
+    const topChunk = sortedChunks[0]
+
+    const contextText = topChunk
+      ? `Source 1 (similarity ${topChunk.similarity.toFixed(2)}):\n${
+          topChunk.content
+        }`
+      : 'No relevant CV content found.'
+
+    trace.span({
+      name: 'rag_retrieval',
+      input: userMessage,
+      output: contextText,
+      metadata: { similarities: contextChunks.map((c) => c.similarity) },
+    })
 
     /* -------- System prompt -------- */
     const fullMessages = [
@@ -147,6 +155,8 @@ ${contextText}
     /* -------- Stream Gemini response -------- */
     let fullResponse = ''
 
+    const startLatency = Date.now()
+
     await model.invoke(fullMessages, {
       callbacks: [
         // streaming adds the tokens one by one as they come back from the llm to full response
@@ -163,8 +173,12 @@ ${contextText}
       ],
     })
 
+    const endLatency = Date.now() - startLatency
+
     trace.update({
+      name: 'Franky',
       output: fullResponse,
+      metadata: { latency: endLatency },
     }) // save the output to langfuse
   } catch (err) {
     console.error('❌ Error processing chatbot request:', err)
