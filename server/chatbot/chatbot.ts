@@ -111,6 +111,8 @@ export async function chatBot(
     })
 
     /* -------- Retrieve CV context -------- */
+    const startRagLatency = Date.now()
+
     const contextChunks = await retrieveContext(userMessage) // call the retrieve function to get the 5 most similar chunks
     const sortedChunks = contextChunks.sort(
       (a, b) => (b.similarity = a.similarity),
@@ -124,11 +126,16 @@ export async function chatBot(
         }`
       : 'No relevant CV content found.'
 
+    const endRagLatency = Date.now() - startRagLatency
+
     trace.span({
       name: 'rag_retrieval',
       input: userMessage,
       output: contextText,
-      metadata: { similarities: contextChunks.map((c) => c.similarity) },
+      metadata: {
+        similarities: contextChunks.map((c) => c.similarity),
+        latency: endRagLatency,
+      },
     })
 
     /* -------- System prompt -------- */
@@ -156,16 +163,16 @@ ${contextText}
     let fullResponse = ''
 
     const startLatency = Date.now()
+    console.log(startLatency)
 
     await model.invoke(fullMessages, {
       callbacks: [
         // streaming adds the tokens one by one as they come back from the llm to full response
         {
           handleLLMNewToken(token: string) {
-            fullResponse += token
-            // onStream(token)
+            fullResponse += token // handle the streaming to the client
+
             for (const char of token) {
-              console.log('Token:', char)
               onStream(char)
             }
           },
@@ -174,6 +181,7 @@ ${contextText}
     })
 
     const endLatency = Date.now() - startLatency
+    console.log(endLatency)
 
     trace.update({
       name: 'Franky',
