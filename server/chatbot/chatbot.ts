@@ -13,9 +13,6 @@ interface Message {
   content: string
 }
 
-/* -----------------------------
-   Langfuse
--------------------------------- */
 const langfuse = new Langfuse({
   // setup langfuse tracking (the .env vars connect our app to langfuse)
   publicKey: process.env.LANGFUSE_PUBLIC_KEY!,
@@ -23,19 +20,12 @@ const langfuse = new Langfuse({
   baseUrl: process.env.LANGFUSE_BASE_URL,
 })
 
-/* -----------------------------
-   Supabase
--------------------------------- */
 const supabase = createClient(
   // supabase setup (using the service role key) | gives us full database access, should only run on the server side and is never exposed to the frontend
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!,
 )
-// our supabase is used for storing our CV chunks and then running the vector search
 
-/* -----------------------------
-   Gemini model
--------------------------------- */
 const model = new ChatGoogleGenerativeAI({
   // idetifying the specs for the LLM
   model: 'models/gemini-flash-latest',
@@ -43,15 +33,6 @@ const model = new ChatGoogleGenerativeAI({
   streaming: true, // tokens arrive live
 })
 
-// const streamingModel = new ChatGoogleGenerativeAI({
-//   model: 'models/gemini-flash-latest',
-//   temperature: 0.7,
-//   streaming: true,
-// })
-
-/* -----------------------------
-   Embedding model (local)
--------------------------------- */
 const embedPipeline = await pipeline(
   // this is a local embedding (converts the text into nummbers) and lets us compare semantic similarity
   'feature-extraction',
@@ -94,9 +75,6 @@ async function retrieveContext(query: string) {
   }[]
 }
 
-/* -----------------------------
-   Chatbot (RAG)
--------------------------------- */
 export async function chatBot(
   messages: Message[], // full chat history
   onStream: (chunk: string) => void, // callback for live tokens
@@ -110,7 +88,6 @@ export async function chatBot(
       input: { messages },
     })
 
-    /* -------- Retrieve CV context -------- */
     const startRagLatency = Date.now()
 
     const contextChunks = await retrieveContext(userMessage) // call the retrieve function to get the 5 most similar chunks
@@ -138,7 +115,6 @@ export async function chatBot(
       },
     })
 
-    /* -------- System prompt -------- */
     const fullMessages = [
       // systeem prompt defines identity, the rules and injects the CV context
       {
@@ -159,7 +135,6 @@ ${contextText}
       ...messages,
     ]
 
-    /* -------- Stream Gemini response -------- */
     let fullResponse = ''
 
     const startLatency = Date.now()
