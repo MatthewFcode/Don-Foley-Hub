@@ -7,17 +7,17 @@ import { pipeline } from '@xenova/transformers'
 /* -----------------------------
    Load environment variables
 -------------------------------- */
-const requiredEnvs = ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY']
-for (const env of requiredEnvs) {
-  if (!process.env[env]) {
-    console.error(`❌ Missing environment variable: ${env}`)
-    process.exit(1)
-  }
-}
+// const requiredEnvs = ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY']
+// for (const env of requiredEnvs) {
+//   if (!process.env[env]) {
+//     console.error(`❌ Missing environment variable: ${env}`)
+//     process.exit(1)
+//   }
+// }
 
-/* -----------------------------
-   Supabase client
--------------------------------- */
+// /* -----------------------------
+//    Supabase client
+// -------------------------------- */
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY,
@@ -26,29 +26,55 @@ const supabase = createClient(
 /* -----------------------------
    Load Xenova embeddings model
 -------------------------------- */
-console.log('🔹 Loading local embedding model… (this may take a minute)')
+//console.log('🔹 Loading local embedding model… (this may take a minute)')
 const embedPipeline = await pipeline(
   'feature-extraction',
   'Xenova/all-MiniLM-L6-v2',
   { quantized: true },
 )
-console.log('✅ Embedding model ready')
+//console.log('✅ Embedding model ready')
 
 /* -----------------------------
    Chunking helper
 -------------------------------- */
-//function chunkText(text, chunkSize = 250, overlap = 50) {
-function chunkText(text, chunkSize = 600, overlap = 100) {
-  const words = text.split(' ')
+//chunking function that splits the text based on section
+function chunkText(text) {
+  // Split on markdown headers (## or ###)
+  const sections = text.split(/\n(?=#{2,3}\s)/) // split on the # chars
+
   const chunks = []
-  let i = 0
-  while (i < words.length) {
-    const chunk = words.slice(i, i + chunkSize).join(' ')
-    chunks.push(chunk)
-    i += chunkSize - overlap
+
+  for (const section of sections) {
+    const trimmed = section.trim()
+    if (!trimmed) continue
+
+    // If a section is very long, split it further
+    const words = trimmed.split(' ')
+    if (words.length > 400) {
+      // Fall back to word chunking for long sections
+      let i = 0
+      while (i < words.length) {
+        chunks.push(words.slice(i, i + 400).join(' '))
+        i += 300 // 100 word overlap
+      }
+    } else {
+      chunks.push(trimmed)
+    }
   }
+
   return chunks
 }
+// function chunkText(text, chunkSize = 600, overlap = 100) {
+//   const words = text.split(' ')
+//   const chunks = []
+//   let i = 0
+//   while (i < words.length) {
+//     const chunk = words.slice(i, i + chunkSize).join(' ')
+//     chunks.push(chunk)
+//     i += chunkSize - overlap
+//   }
+//   return chunks
+// }
 
 /* -----------------------------
    Embeddings helper

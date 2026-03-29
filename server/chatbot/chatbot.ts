@@ -79,7 +79,7 @@ async function retrieveContext(query: string) {
   const { data, error } = await supabase.rpc('match_documents', {
     // supabase Postgres function that compares all the vectors and returns the 5 most similar chunks
     query_embedding: embedding,
-    match_count: 2,
+    match_count: 1,
   })
 
   if (error) {
@@ -115,7 +115,7 @@ export async function chatBot(
 
     const contextChunks = await retrieveContext(userMessage) // call the retrieve function to get the 5 most similar chunks
     const sortedChunks = contextChunks.sort(
-      (a, b) => (b.similarity = a.similarity),
+      (a, b) => b.similarity - a.similarity,
     )
 
     const topChunk = sortedChunks[0]
