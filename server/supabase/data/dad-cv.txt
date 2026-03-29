@@ -1,10 +1,4 @@
-﻿# Don Foley – RAG-Optimized Professional Knowledge File
-
-This document is structured for optimal Retrieval-Augmented Generation (RAG) performance. Each role is self-contained, semantically dense, and suitable for chunk-level ingestion. Sections are written to directly answer likely chatbot questions (experience, scale, technologies, outcomes).
-
----
-
-## Profile Summary
+﻿## Profile Summary
 
 Senior Programme & Transformation Director with 20+ years of experience leading large-scale digital, ERP, and enterprise transformation programmes across public sector, utilities, aviation, energy, banking, and global FMCG. Extensive leadership of SAP (ECC, S/4HANA), Workday, Salesforce, Ariba, PeopleSoft, and enterprise infrastructure programmes, typically operating at CIO / CEO / Board level. Proven delivery of high-value ($10M–$80M+) programmes on time and within budget.
 

@@ -15,31 +15,17 @@ const embedPipeline = await pipeline(
   { quantized: true },
 )
 
-//chunking function that splits the text based on section
-function chunkText(text) {
-  // Split on markdown headers (## or ###)
-  const sections = text.split(/\n(?=#{2,3}\s)/) // split on the # chars
-
+// helper function for breaking up text
+// this is the other one breh
+function chunkText(text, chunkSize = 500, overlap = 100) {
+  const words = text.split(' ')
   const chunks = []
-
-  for (const section of sections) {
-    const trimmed = section.trim()
-    if (!trimmed) continue
-
-    // If a section is very long, split it further
-    const words = trimmed.split(' ')
-    if (words.length > 400) {
-      // Fall back to word chunking for long sections
-      let i = 0
-      while (i < words.length) {
-        chunks.push(words.slice(i, i + 400).join(' '))
-        i += 300 // 100 word overlap
-      }
-    } else {
-      chunks.push(trimmed)
-    }
+  let i = 0
+  while (i < words.length) {
+    const chunk = words.slice(i, i + chunkSize).join(' ')
+    chunks.push(chunk)
+    i += chunkSize - overlap
   }
-
   return chunks
 }
 
